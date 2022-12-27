@@ -1,0 +1,52 @@
+﻿@page
+@model Abp.Crud.Web.Pages.Tasks.EditModel
+@using Abp.Crud.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<Resource> L
+@{
+    ViewData["Title"] = L["Crud:Update"];
+}
+
+<div class="card">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="TaskList.Title" class="control-label"></label>
+                        <input asp-for="TaskList.Title" class="form-control" />
+                        <span asp-validation-for="TaskList.Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TaskList.AssignedTo" class="control-label"></label>
+                        <input asp-for="TaskList.AssignedTo" class="form-control" />
+                        <span asp-validation-for="TaskList.AssignedTo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TaskList.DueDate" class="control-label"></label>
+                        <input asp-for="TaskList.DueDate" class="form-control" />
+                        <span asp-validation-for="TaskList.DueDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TaskList.Status" class="control-label"></label>
+                        <select asp-for="TaskList.Status" asp-items="@Model.StatusSelectList" class="form-control"></select>
+                        <span asp-validation-for="TaskList.Status" class="text-danger"></span>
+                    </div>
+                    <input type="hidden" asp-for="TaskList.Id" />
+                    <div class="form-group mt-2">
+                        <a asp-page="Index" class="btn btn-warning">@L["Crud:Back"]</a>
+                        <input type="submit" value="@L["Crud:Update"]" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

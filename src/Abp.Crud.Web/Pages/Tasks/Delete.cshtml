@@ -1,0 +1,49 @@
+﻿@page
+@using Abp.Crud.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model Abp.Crud.Web.Pages.Tasks.DeleteModel
+@inject IHtmlLocalizer<Resource> L
+@{
+    ViewData["Title"] = L["Crud:Delete"];
+}
+
+<div class="card">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+        <h3>@L["Crud:DeleteMessage"]</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TaskList.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TaskList.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TaskList.AssignedTo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TaskList.AssignedTo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TaskList.DueDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Model.TaskList.DueDate.ToShortDateString()
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TaskList.Status)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TaskList.Status)
+            </dd>
+        </dl>
+    
+        <form method="post">
+            <input type="hidden" asp-for="TaskList.Id" />
+            <a asp-page="./Index" class="btn btn-warning">@L["Crud:Back"]</a>
+            <button type="submit" class="btn btn-danger">@L["Crud:Delete"]</button>
+        </form>
+    </div>
+</div>

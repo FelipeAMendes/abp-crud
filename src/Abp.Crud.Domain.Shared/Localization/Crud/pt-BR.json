@@ -1,0 +1,22 @@
+{
+    "culture": "pt-BR",
+    "texts": {
+        "Menu:Home": "Principal",
+        "Welcome": "Seja bem-vindo!",
+        "Menu:TaskList": "Lista de Tarefas",
+        "Menu:PersonsListApi": "Muitas Pessoas",
+        "TaskList:InProgress": "Em Progresso",
+        "TaskList:Waiting": "Aguardando",
+        "TaskList:Cancelled": "Cancelada",
+        "TaskList:Completed": "Concluída",
+        "Crud:Create": "Novo",
+        "Crud:Update": "Atualizar",
+        "Crud:Delete": "Remover",
+        "Crud:Details": "Detalhes",
+        "Crud:List": "Lista",
+        "Crud:SearchInputPlaceholderTitle": "Pesquise por título",
+        "Crud:Back": "Voltar a lista",
+        "Crud:DeleteMessage": "Tem certeza de que deseja excluir essa tarefa?",
+        "PersonsList": "Lista de Pessoas"
+    }
+}

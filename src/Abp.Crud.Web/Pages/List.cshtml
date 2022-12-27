@@ -1,0 +1,20 @@
+﻿@page
+@using Abp.Crud.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model Abp.Crud.Web.Pages.ListModel
+@inject IHtmlLocalizer<Resource> L
+@section scripts {
+    <abp-script src="/Pages/List.js" />
+}
+@{
+    ViewData["Title"] = L["PersonsList"];
+}
+
+<abp-card>
+    <abp-card-header>
+        <h2>@ViewData["Title"]</h2>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="personsTable"></abp-table>
+    </abp-card-body>
+</abp-card>

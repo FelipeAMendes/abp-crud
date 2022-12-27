@@ -1,0 +1,22 @@
+{
+    "culture": "es",
+    "texts": {
+        "Menu:Home": "Inicio",
+        "Welcome": "Bienvenido",
+        "Menu:TaskList": "Lista de quehaceres",
+        "Menu:PersonsListApi": "Muchas personas",
+        "TaskList:InProgress": "En curso",
+        "TaskList:Waiting": "Espera",
+        "TaskList:Cancelled": "Cancelada",
+        "TaskList:Completed": "Terminada",
+        "Crud:Create": "Crear",
+        "Crud:Update": "Actualizar",
+        "Crud:Delete": "Eliminar",
+        "Crud:Details": "Detalles",
+        "Crud:List": "Lista",
+        "Crud:SearchInputPlaceholderTitle": "Buscar por titulo",
+        "Crud:Back": "Volver a la lista",
+        "Crud:DeleteMessage": "¿Estás segura de que quieres eliminar esto?",
+        "PersonsList": "Lista de Personas"
+    }
+}
