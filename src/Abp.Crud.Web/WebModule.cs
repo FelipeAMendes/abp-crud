@@ -73,7 +73,7 @@ public class WebModule : AbpModule
                 typeof(WebModule).Assembly
             );
         });
-        
+
         PreConfigure<OpenIddictBuilder>(builder =>
         {
             builder.AddValidation(options =>
@@ -84,9 +84,27 @@ public class WebModule : AbpModule
             });
         });
 
-        PreConfigure<AbpOpenIddictAspNetCoreOptions>(options =>
+        PreConfigure<OpenIddictServerBuilder>(builder =>
         {
-            options.AddDevelopmentEncryptionAndSigningCertificate = false;
+            var environment = context.Services.GetHostingEnvironment();
+
+            if (environment.IsDevelopment())
+            {
+                builder
+                    .AddDevelopmentEncryptionCertificate()
+                    .AddDevelopmentSigningCertificate();
+            }
+            else
+            {
+                var thumbprint = Environment.GetEnvironmentVariable("Thumbprint");
+
+                if (!string.IsNullOrEmpty(thumbprint))
+                {
+                    builder
+                        .AddEncryptionCertificate(thumbprint)
+                        .AddSigningCertificate(thumbprint);
+                }
+            }
         });
     }
 
@@ -107,7 +125,7 @@ public class WebModule : AbpModule
         ConfigureMediatR(context.Services);
         ConfigureCrudServices(context.Services);
     }
-    
+
     private void ConfigureAuthentication(ServiceConfigurationContext context)
     {
         context.Services.ForwardIdentityAuthenticationForBearer(OpenIddictValidationAspNetCoreDefaults.AuthenticationScheme);
@@ -134,7 +152,7 @@ public class WebModule : AbpModule
             );
         });
     }
-    
+
     private void ConfigureAutoMapper()
     {
         Configure<AbpAutoMapperOptions>(options =>
